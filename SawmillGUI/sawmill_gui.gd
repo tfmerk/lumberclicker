@@ -34,8 +34,11 @@ func _on_get_wood_button_button_down():
 	resources_update.emit("wood")
 	
 	for n in wood_to_add:
-		var w = wood_item.instantiate()
+		var w = wood_item.instantiate() as SawmillWood
 		w.global_position = spawns.pick_random().global_position
+		w.rotation = randf_range(0.0, 360.0)
+		w.gravity_scale = randf_range(0.055, 0.085)
+		
 		if not w.wood_was_clicked.is_connected(_on_wood_was_clicked):
 			w.wood_was_clicked.connect(_on_wood_was_clicked)
 		wood_items.add_child(w)
