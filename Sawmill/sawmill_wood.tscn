@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmcewctqycl3d"]
+
+[ext_resource type="Script" path="res://Sawmill/sawmill_wood.gd" id="1_07cg1"]
+[ext_resource type="Texture2D" uid="uid://daxf52r61ekyk" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent.png" id="2_nf280"]
+[ext_resource type="AudioStream" uid="uid://cesyj3adtn1qo" path="res://assets/sounds/chop.wav" id="4_kldo5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gofdv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu264"]
+radius = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqgt7"]
+atlas = ExtResource("2_nf280")
+region = Rect2(0, 17, 16, 16)
+
+[sub_resource type="Animation" id="Animation_pqmiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_mf6p5"]
+resource_name = "blink"
+
+[sub_resource type="Animation" id="Animation_jri0n"]
+resource_name = "remove"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_kldo5")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uxrja"]
+_data = {
+"RESET": SubResource("Animation_pqmiy"),
+"blink": SubResource("Animation_mf6p5"),
+"remove": SubResource("Animation_jri0n")
+}
+
+[node name="SawmillWood" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_gofdv")
+gravity_scale = 0.075
+constant_force = Vector2(0, 10)
+script = ExtResource("1_07cg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(64, 64)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vu264")
+
+[node name="TextureButton" type="TextureButton" parent="CollisionShape2D"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_xqgt7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uxrja")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="SelfDestructionTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[connection signal="button_down" from="CollisionShape2D/TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="timeout" from="SelfDestructionTimer" to="." method="_on_self_destruction_timer_timeout"]

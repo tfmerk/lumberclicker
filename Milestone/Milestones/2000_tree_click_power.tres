@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://cnp1a15b37uj4"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_im28q"]
+
+[resource]
+script = ExtResource("1_im28q")
+id = "2000"
+name = "Calloused Hands"
+description = "After countless hours of chopping and lifting, your hands have grown tougher, your grip stronger. Every swing now lands with more weight behind it. You're no longer a novice — you're a worker forged by the land itself."
+effect_description = "Click power increases by +1. Resources harvested per tap feel noticeably boosted."
+effect_id = "add_click_power_tree"
+effect_power = 1
+cost = {
+"wood": 30
+}

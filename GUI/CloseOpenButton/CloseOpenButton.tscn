@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2nowgem0aeaj"]
+
+[ext_resource type="Script" path="res://GUI/CloseOpenButton/CloseOpenButton.gd" id="1_1xr1y"]
+[ext_resource type="Texture2D" uid="uid://daxf52r61ekyk" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent.png" id="2_tgeqt"]
+[ext_resource type="AudioStream" uid="uid://b1f4w2k2fxn2n" path="res://assets/sounds/click.wav" id="3_0vqkr"]
+[ext_resource type="FontFile" uid="uid://ba0xet4yn3b6y" path="res://assets/fonts/m5x7.ttf" id="4_2e2kn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq4fg"]
+atlas = ExtResource("2_tgeqt")
+region = Rect2(646, 340, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnsse"]
+atlas = ExtResource("2_tgeqt")
+region = Rect2(612, 340, 16, 16)
+
+[node name="CloseButton" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_1xr1y")
+
+[node name="ActiveSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(64, 32)
+rotation = 6.28319
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_oq4fg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(64, 32)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_qnsse")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0vqkr")
+bus = &"SFX"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 128.0
+offset_bottom = 66.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2e2kn")
+theme_override_font_sizes/font_size = 32
+text = "Label"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

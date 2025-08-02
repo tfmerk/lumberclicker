@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://dau0pv3jfc5ai"]
+
+[ext_resource type="Script" path="res://SawmillGUI/sawmill_gui.gd" id="1_4soje"]
+[ext_resource type="FontFile" uid="uid://ba0xet4yn3b6y" path="res://assets/fonts/m5x7.ttf" id="2_p8sjf"]
+
+[sub_resource type="Gradient" id="Gradient_rrhl7"]
+interpolation_mode = 1
+colors = PackedColorArray(0.116665, 0.192688, 0, 1, 0.136851, 0.25324, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hrmci"]
+gradient = SubResource("Gradient_rrhl7")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_615ah"]
+size = Vector2(448, 64)
+
+[node name="SawmillGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4soje")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_hrmci")
+
+[node name="Belts" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="left" type="Control" parent="Belts"]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Belts/left"]
+position = Vector2(472, 360)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Belts/left/StaticBody2D"]
+position = Vector2(-8, 0)
+polygon = PackedVector2Array(-1008, -1096, -1008, -1288, -1024, -1424, -1064, -1328, -1000, -728, -696, -400, -360, -32, 176, 152, 816, 376, 864, 312, -296, -96, -888, -744)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Belts/left"]
+position = Vector2(472, 360)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Belts/left/StaticBody2D2"]
+position = Vector2(-8, 0)
+polygon = PackedVector2Array(-240, -1064, -176, -376, -8, -272, 864, 136, 912, 72, -96, -464, -176, -1352)
+
+[node name="right" type="Control" parent="Belts"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="WoodSpawns" type="Node" parent="."]
+
+[node name="SpawnLeft" type="Marker2D" parent="WoodSpawns"]
+position = Vector2(-128, -520)
+
+[node name="WoodItems" type="Node" parent="."]
+
+[node name="GetWoodButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -544.0
+offset_top = -88.0
+offset_right = -96.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("PlaceholderTexture2D_615ah")
+
+[node name="WoodAmountSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -136.0
+offset_right = 384.0
+offset_bottom = -120.0
+grow_vertical = 0
+min_value = 1.0
+max_value = 1.0
+value = 1.0
+
+[node name="WoodAmountLabel" type="Label" parent="WoodAmountSlider"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -24.0
+offset_bottom = 2.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_p8sjf")
+theme_override_font_sizes/font_size = 32
+text = "100/10000"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="button_down" from="GetWoodButton" to="." method="_on_get_wood_button_button_down"]
+[connection signal="value_changed" from="WoodAmountSlider" to="." method="_on_wood_amount_slider_value_changed"]

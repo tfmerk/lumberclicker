@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://cyq84nuo5dfwr"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_32kif"]
+
+[resource]
+script = ExtResource("1_32kif")
+id = "2300"
+name = "Sawdust Economy"
+description = "Your reliance on raw wood has reached its limits. No longer satisfied with simple logs, your people begin shaping timber into usable materials. The rhythmic hum of sawblades fills the air as your first sawmill rises — turning forests into frameworks, planks into purpose. This is no longer just survival. This is industry."
+effect_description = "Unlocks the Sawmill, enabling conversion of Wood into Planks, Beams, and other construction materials."
+effect_id = "unlock_building_sawmill"
+effect_power = 0
+cost = {
+"wood": 300
+}

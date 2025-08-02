@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://3nqldbhiakra"]
+
+[ext_resource type="Script" path="res://MilestoneGUI/milestone_gui.gd" id="1_0k1iu"]
+[ext_resource type="FontFile" uid="uid://ba0xet4yn3b6y" path="res://assets/fonts/m5x7.ttf" id="1_th33n"]
+[ext_resource type="Resource" uid="uid://d0dh53no3wtki" path="res://Milestone/Milestones/100_more_trees.tres" id="2_3u2un"]
+
+[sub_resource type="Gradient" id="Gradient_c6cqm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.419758, 0.0351992, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hrmci"]
+gradient = SubResource("Gradient_c6cqm")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_615ah"]
+size = Vector2(448, 64)
+
+[node name="MilestoneGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0k1iu")
+active_milestone = ExtResource("2_3u2un")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_hrmci")
+
+[node name="MilestoneLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -180.0
+offset_right = 384.0
+offset_bottom = -129.0
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_th33n")
+theme_override_font_sizes/font_size = 64
+text = "1: \"The Basics\""
+horizontal_alignment = 1
+
+[node name="DescriptionAndCosts" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -96.0
+offset_right = 960.0
+offset_bottom = 60.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_th33n")
+theme_override_font_sizes/normal_font_size = 32
+text = "desciption goes here. desciption goes here. desciption goes here. desciption goes here. desciption goes here. desciption goes here. desciption goes here. desciption goes here. desciption goes here. desciption goes here. desciption goes here."
+
+[node name="UnlockButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -136.0
+offset_right = 224.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = SubResource("PlaceholderTexture2D_615ah")
+
+[connection signal="button_down" from="UnlockButton" to="." method="_on_unlock_button_button_down"]

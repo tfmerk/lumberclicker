@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://d0dh53no3wtki"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_u1gju"]
+
+[resource]
+script = ExtResource("1_u1gju")
+id = "1000"
+name = "Forest Growth I"
+description = "The surrounding land begins to respond to your efforts. Young saplings spring up where once there was barren ground, nurtured by your growing settlement. With careful planning and a touch of patience, you’ve expanded your forest’s reach."
+effect_description = "Unlocks 2 additional tree plots."
+effect_id = "add_slots_tree"
+effect_power = 2
+cost = {
+"wood": 10
+}

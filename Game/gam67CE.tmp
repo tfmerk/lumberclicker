@@ -1,0 +1,172 @@
+[gd_scene load_steps=7 format=3 uid="uid://shs5pn4v32xk"]
+
+[ext_resource type="Script" path="res://Game/game.gd" id="1_smluu"]
+[ext_resource type="PackedScene" uid="uid://wifb43pevjn0" path="res://TextureLabel/tree_texture_label.tscn" id="2_0co4t"]
+[ext_resource type="PackedScene" uid="uid://y8sa0mrhaba8" path="res://Tree/TreeButton.tscn" id="2_3wqet"]
+[ext_resource type="FontFile" uid="uid://ba0xet4yn3b6y" path="res://assets/fonts/m5x7.ttf" id="3_1ak0y"]
+[ext_resource type="Script" path="res://Game/SaveManager.gd" id="3_42hu5"]
+[ext_resource type="PackedScene" uid="uid://3nqldbhiakra" path="res://MilestoneGUI/milestone_gui.tscn" id="4_vaotg"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_smluu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_constants/separation = 75
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TreeTextureLabel" parent="CanvasLayer/HBoxContainer/Control" instance=ExtResource("2_0co4t")]
+layout_mode = 0
+
+[node name="WoodLabel" type="Label" parent="CanvasLayer/HBoxContainer/Control"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 59.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1ak0y")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="Trees" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -188.0
+offset_right = -263.0
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 10
+
+[node name="TreeButton" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton2" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton3" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton4" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton5" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton6" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton7" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton8" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton9" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton10" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton11" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton12" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton13" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton14" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton15" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton16" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton17" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton18" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton19" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton20" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton21" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton22" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton23" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton24" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton25" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton26" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton27" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton28" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton29" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton30" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="Save" type="Node" parent="."]
+
+[node name="AutoSaveTimer" type="Timer" parent="Save"]
+wait_time = 10.0
+autostart = true
+
+[node name="SaveManager" type="Node" parent="Save"]
+unique_name_in_owner = true
+script = ExtResource("3_42hu5")
+
+[node name="MilestoneGUI" parent="." instance=ExtResource("4_vaotg")]
+layout_mode = 1
+
+[connection signal="timeout" from="Save/AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
+[connection signal="try_unlock_milestone" from="MilestoneGUI" to="." method="_on_milestone_gui_try_unlock_milestone"]

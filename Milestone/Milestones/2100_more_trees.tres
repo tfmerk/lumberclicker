@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://dhm6f7soeydfm"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_y5jm4"]
+
+[resource]
+script = ExtResource("1_y5jm4")
+id = "2100"
+name = "Forest Growth II"
+description = "With new axes in hand and a crew ready to clear underbrush, you push the edge of the forest deeper into the wilds. The frontier opens, bringing with it opportunities for increased lumber harvests and future expansion."
+effect_description = "Unlocks 3 new tree plots."
+effect_id = "add_slots_tree"
+effect_power = 3
+cost = {
+"wood": 60
+}

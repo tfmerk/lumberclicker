@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://em3eiec7of1p"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_t8mlw"]
+
+[resource]
+script = ExtResource("1_t8mlw")
+id = "2500"
+name = "Forest Growth III"
+description = "Years of effort have transformed your settlement into a timber powerhouse. The forest seems endless, and now your operations span further than ever before. What once took days is now handled with practiced efficiency."
+effect_description = "Unlocks 4 additional tree plots."
+effect_id = "add_slots_tree"
+effect_power = 4
+cost = {
+"beam": 50,
+"plank": 20
+}

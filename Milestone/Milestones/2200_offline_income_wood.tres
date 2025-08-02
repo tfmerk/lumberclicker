@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://dqnrocm6sf3tc"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_6y2ip"]
+
+[resource]
+script = ExtResource("1_6y2ip")
+id = "2200"
+name = "Idle Roots"
+description = "Even when you rest, your settlement persists. Trees continue to grow, tools keep chipping away, and the forest never truly sleeps. You've laid the groundwork for a self-sustaining operation — now, time itself becomes your ally."
+effect_description = "Unlocks offline income, allowing you to earn resources while the game is closed or idle."
+effect_id = "offline_income_tree"
+effect_power = 1
+cost = {
+"wood": 150
+}
