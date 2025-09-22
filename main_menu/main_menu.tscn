@@ -1,0 +1,237 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnsamqxf5rkgl"]
+
+[ext_resource type="Texture2D" uid="uid://daxf52r61ekyk" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent.png" id="1_qlys5"]
+
+[sub_resource type="Gradient" id="Gradient_xf2ql"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0.25098, 0, 0.239216)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gr4ho"]
+gradient = SubResource("Gradient_xf2ql")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsg8r"]
+atlas = ExtResource("1_qlys5")
+region = Rect2(0, 16, 16, 17)
+
+[sub_resource type="Animation" id="Animation_q78y3"]
+resource_name = "fly_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("trees:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(24, 0), Vector2(-54.8572, 32.5714)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("trees2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(904, -56), Vector2(1042, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_stpvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("trees:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-632, 296)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("trees2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1272, 104)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_otmuc"]
+_data = {
+"RESET": SubResource("Animation_stpvp"),
+"fly_in": SubResource("Animation_q78y3")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="buttons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -132.0
+offset_right = 64.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_gr4ho")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.5
+offset_top = -50.5
+offset_right = 34.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartTextureButton" type="Button" parent="buttons/VBoxContainer"]
+layout_mode = 2
+text = "start"
+
+[node name="SettingsTextureButton" type="Button" parent="buttons/VBoxContainer"]
+layout_mode = 2
+text = "settings"
+
+[node name="ExitTextureButton" type="Button" parent="buttons/VBoxContainer"]
+layout_mode = 2
+text = "exit"
+
+[node name="trees" type="Node2D" parent="."]
+position = Vector2(-632, 296)
+
+[node name="Polygon2D" type="Polygon2D" parent="trees"]
+position = Vector2(360, 824)
+color = Color(0.156863, 0.184314, 0.0431373, 1)
+offset = Vector2(-200, -520)
+polygon = PackedVector2Array(-72, 80, 48, 120, 96, 184, 176, 464, -288, 464, -288, 280, -216, 168)
+
+[node name="Sprite2D" type="Sprite2D" parent="trees"]
+position = Vector2(32, 416)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="trees"]
+position = Vector2(88, 448)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D3" type="Sprite2D" parent="trees"]
+position = Vector2(168, 448)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D4" type="Sprite2D" parent="trees"]
+position = Vector2(208, 504)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D5" type="Sprite2D" parent="trees"]
+position = Vector2(160, 544)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D6" type="Sprite2D" parent="trees"]
+position = Vector2(32, 536)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D7" type="Sprite2D" parent="trees"]
+position = Vector2(96, 528)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D8" type="Sprite2D" parent="trees"]
+position = Vector2(224, 576)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="trees2" type="Node2D" parent="."]
+position = Vector2(1272, 104)
+
+[node name="Polygon2D" type="Polygon2D" parent="trees2"]
+position = Vector2(16, 440)
+color = Color(0.156863, 0.184314, 0.0431373, 1)
+offset = Vector2(144, -136)
+polygon = PackedVector2Array(-32, 120, 64, 152, 192, 224, 312, 464, -368, 464, -288, 280, -200, 232)
+
+[node name="Sprite2D" type="Sprite2D" parent="trees2"]
+position = Vector2(-56, 632)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D2" type="Sprite2D" parent="trees2"]
+position = Vector2(8, 512)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D3" type="Sprite2D" parent="trees2"]
+position = Vector2(144, 456)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D4" type="Sprite2D" parent="trees2"]
+position = Vector2(192, 536)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D5" type="Sprite2D" parent="trees2"]
+position = Vector2(112, 528)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D6" type="Sprite2D" parent="trees2"]
+position = Vector2(40, 584)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D7" type="Sprite2D" parent="trees2"]
+position = Vector2(120, 616)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="Sprite2D8" type="Sprite2D" parent="trees2"]
+position = Vector2(224, 624)
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_tsg8r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_otmuc")
+}
+autoplay = "fly_in"

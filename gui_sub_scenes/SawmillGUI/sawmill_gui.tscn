@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://dau0pv3jfc5ai"]
+
+[ext_resource type="Script" path="res://gui_sub_scenes/SawmillGUI/sawmill_gui.gd" id="1_4soje"]
+[ext_resource type="PackedScene" uid="uid://d1bd8n6ajq8iy" path="res://GUI/RechargeButton/recharge_button.tscn" id="2_0ifgx"]
+
+[node name="SawmillGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4soje")
+
+[node name="Sawmills" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -32.0
+offset_right = 288.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 64
+columns = 10
+
+[node name="RechargeButton" parent="Sawmills" instance=ExtResource("2_0ifgx")]
+layout_mode = 2
+recharge_time = 10.0
+
+[node name="RechargeButton2" parent="Sawmills" instance=ExtResource("2_0ifgx")]
+layout_mode = 2
+recharge_time = 10.0
+
+[node name="RechargeButton3" parent="Sawmills" instance=ExtResource("2_0ifgx")]
+layout_mode = 2
+recharge_time = 10.0
+
+[node name="RechargeButton4" parent="Sawmills" instance=ExtResource("2_0ifgx")]
+layout_mode = 2
+recharge_time = 10.0
+
+[node name="RechargeButton5" parent="Sawmills" instance=ExtResource("2_0ifgx")]
+layout_mode = 2
+recharge_time = 10.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

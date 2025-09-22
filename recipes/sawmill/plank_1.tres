@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeResource" load_steps=2 format=3 uid="uid://2rhff4ke1rl8"]
+
+[ext_resource type="Script" path="res://recipes/RecipeResource.gd" id="1_o82lj"]
+
+[resource]
+script = ExtResource("1_o82lj")
+id = "plank_1"
+name = "Plank I"
+tree_folder = "Planks"
+duration = 5
+resources_input = {
+"wood": 10
+}
+resources_output = {
+"plank": 1
+}

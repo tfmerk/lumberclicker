@@ -1,0 +1,229 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1bd8n6ajq8iy"]
+
+[ext_resource type="Texture2D" uid="uid://daxf52r61ekyk" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent.png" id="1_dtftj"]
+[ext_resource type="Script" path="res://GUI/RechargeButton/recharge_button.gd" id="1_jolfp"]
+[ext_resource type="Resource" uid="uid://2rhff4ke1rl8" path="res://recipes/sawmill/plank_1.tres" id="2_tbpqk"]
+[ext_resource type="FontFile" uid="uid://ba0xet4yn3b6y" path="res://assets/fonts/m5x7.ttf" id="3_8t5s8"]
+[ext_resource type="Texture2D" uid="uid://bsgk80kd6jkke" path="res://assets/kenney_1-bit-pack/Tilesheet/colored.png" id="4_rjptr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00ii5"]
+atlas = ExtResource("1_dtftj")
+region = Rect2(119, 340, 17, 16)
+
+[sub_resource type="Animation" id="Animation_b7ii2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TimeLeftLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hpw73"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimeLeftLabel:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_fv0kl"]
+resource_name = "working"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0872665, 0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xaivd"]
+_data = {
+"RESET": SubResource("Animation_b7ii2"),
+"fade_out": SubResource("Animation_hpw73"),
+"working": SubResource("Animation_fv0kl")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnh7i"]
+atlas = ExtResource("1_dtftj")
+region = Rect2(680, 221, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4pge"]
+atlas = ExtResource("4_rjptr")
+region = Rect2(680, 221, 16, 16)
+
+[node name="RechargeButton" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1088.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+button_mask = 3
+script = ExtResource("1_jolfp")
+selected_recipe = ExtResource("2_tbpqk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(3.76471, 3.5)
+texture = SubResource("AtlasTexture_00ii5")
+
+[node name="RechargeTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xaivd")
+}
+
+[node name="TimeLeftLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 66.0
+pivot_offset = Vector2(0, 24)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8t5s8")
+theme_override_font_sizes/font_size = 32
+text = "99s"
+
+[node name="RecipeControl" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 9.0
+anchor_bottom = 4.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RecipeBackground" type="ColorRect" parent="RecipeControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.510536, 0.272344, 0.121129, 1)
+
+[node name="RecipeCloseButton" type="TextureButton" parent="RecipeControl"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 8.0
+offset_right = -48.0
+offset_bottom = 24.0
+grow_horizontal = 0
+scale = Vector2(3.5, 3.5)
+texture_normal = SubResource("AtlasTexture_cnh7i")
+texture_hover = SubResource("AtlasTexture_k4pge")
+
+[node name="RecipeTree" type="Tree" parent="RecipeControl"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 192.0
+offset_bottom = 304.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RecipeControl"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_right = -16.0
+offset_bottom = 142.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Input" type="Label" parent="RecipeControl/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8t5s8")
+theme_override_font_sizes/font_size = 32
+text = "Input:
+999 XXXXXX
+999 XXXXXX
+999 XXXXXX
+999 XXXXXX"
+
+[node name="Output" type="Label" parent="RecipeControl/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_8t5s8")
+theme_override_font_sizes/font_size = 32
+text = "Output:
+999 XXXXXX
+999 XXXXXX
+999 XXXXXX
+999 XXXXXX"
+
+[node name="Title" type="Label" parent="RecipeControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 16.0
+offset_right = 188.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8t5s8")
+theme_override_font_sizes/font_size = 64
+text = "Recipe label"
+
+[node name="Duration" type="Label" parent="RecipeControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 96.0
+offset_right = 188.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_8t5s8")
+theme_override_font_sizes/font_size = 32
+text = "Duration: 999 s"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="timeout" from="RechargeTimer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="RecipeControl/RecipeCloseButton" to="." method="_on_recipe_close_button_pressed"]
+[connection signal="item_selected" from="RecipeControl/RecipeTree" to="." method="_on_recipe_tree_item_selected"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://wir5orjbbbvh"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_kgdqd"]
+
+[resource]
+script = ExtResource("1_kgdqd")
+id = "strength_in_beams"
+name = "Strength in Beams"
+description = "As your sawmills advance, your workers master heavier cuts. From sturdy beams, they craft the backbone of new structures, each log shaped with precision to support ambitions reaching higher than ever before."
+effect_description = "Unlocks Beams as a new sawmill recipe. Right click on a sawmill to select the recipe."
+effect_id = "unlock_recipe_sawmill_beam_1"
+effect_power = 1
+cost = {
+"plank": 30
+}

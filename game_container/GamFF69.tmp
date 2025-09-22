@@ -1,0 +1,251 @@
+[gd_scene load_steps=28 format=3 uid="uid://beat1ksdchkg4"]
+
+[ext_resource type="Texture2D" uid="uid://daxf52r61ekyk" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent.png" id="1_arbm7"]
+[ext_resource type="Script" path="res://game_container/GameContainer.gd" id="1_ng3kn"]
+[ext_resource type="FontFile" uid="uid://ba0xet4yn3b6y" path="res://assets/fonts/m5x7.ttf" id="2_gcla0"]
+[ext_resource type="PackedScene" uid="uid://c2nowgem0aeaj" path="res://GUI/CloseOpenButton/CloseOpenButton.tscn" id="4_f1gy4"]
+[ext_resource type="Script" path="res://game_container/ButtonsContainer.gd" id="4_qhsos"]
+[ext_resource type="Texture2D" uid="uid://bsgk80kd6jkke" path="res://assets/kenney_1-bit-pack/Tilesheet/colored.png" id="5_gj34k"]
+[ext_resource type="Script" path="res://save_manager/SaveManager.gd" id="6_wl7wd"]
+[ext_resource type="AudioStream" uid="uid://b7i7lc25tk7qo" path="res://assets/music/forest-lullaby-110624.mp3" id="7_27tkv"]
+[ext_resource type="AudioStream" uid="uid://bkqxkwjmtxs1u" path="res://assets/music/ambient-spring-forest-15846.mp3" id="8_1tdby"]
+[ext_resource type="Resource" uid="uid://d0dh53no3wtki" path="res://Milestone/Milestones/1000_more_trees_2.tres" id="9_guri7"]
+[ext_resource type="AudioStream" uid="uid://b5rmvrhoifit1" path="res://assets/music/autumn-forest-171493.mp3" id="9_k70u3"]
+[ext_resource type="Resource" uid="uid://dal6j25jrwo8o" path="res://Milestone/Milestones/2000_more_trees_3.tres" id="10_4ek4s"]
+[ext_resource type="PackedScene" uid="uid://3nqldbhiakra" path="res://gui_sub_scenes/MilestoneGUI/milestone_gui.tscn" id="10_j5kea"]
+[ext_resource type="Script" path="res://Milestone/MilestoneManager.gd" id="10_s7vld"]
+[ext_resource type="Resource" uid="uid://ctnplxo6npd5h" path="res://Milestone/Milestones/9999_the_end.tres" id="11_rtrof"]
+[ext_resource type="PackedScene" uid="uid://dau0pv3jfc5ai" path="res://gui_sub_scenes/SawmillGUI/sawmill_gui.tscn" id="11_uvsd2"]
+[ext_resource type="Resource" uid="uid://cyq84nuo5dfwr" path="res://Milestone/Milestones/3000_unlock_building_sawmill.tres" id="11_yyqco"]
+[ext_resource type="Resource" uid="uid://3w7v0rh2uym1" path="res://Milestone/Milestones/4000_more_trees_4.tres" id="12_l1gp7"]
+[ext_resource type="PackedScene" uid="uid://shs5pn4v32xk" path="res://gui_sub_scenes/ForestGUI/forestGUI.tscn" id="13_kf5lb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hjsj"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(0, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djr5s"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(221, 272, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28wmm"]
+atlas = ExtResource("5_gj34k")
+region = Rect2(748, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cveob"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(748, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt65d"]
+atlas = ExtResource("5_gj34k")
+region = Rect2(51, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scs5x"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(51, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhap8"]
+atlas = ExtResource("5_gj34k")
+region = Rect2(119, 340, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d55no"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(119, 340, 16, 16)
+
+[node name="game_container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ng3kn")
+
+[node name="Resources" type="CanvasLayer" parent="."]
+
+[node name="ResourceOverview" type="HBoxContainer" parent="Resources"]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = -144.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+
+[node name="wood" type="Control" parent="Resources/ResourceOverview"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Resources/ResourceOverview/wood"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Wood"
+texture = SubResource("AtlasTexture_6hjsj")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Resources/ResourceOverview/wood/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gcla0")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="plank" type="Control" parent="Resources/ResourceOverview"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Resources/ResourceOverview/plank"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Planks"
+texture = SubResource("AtlasTexture_djr5s")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Resources/ResourceOverview/plank/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gcla0")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="SideMenueBar" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SideMenueBar"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.203922, 0.0862745, 0.00392157, 0.803922)
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="SideMenueBar"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -308.0
+offset_right = -16.0
+offset_bottom = 308.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 30
+script = ExtResource("4_qhsos")
+
+[node name="MilestoneButton" parent="SideMenueBar/ButtonsContainer" node_paths=PackedStringArray("gui") instance=ExtResource("4_f1gy4")]
+layout_mode = 2
+button_id = "milestone"
+is_unlocked_from_start = true
+label_text = "Milestones"
+active_sprite_texture = SubResource("AtlasTexture_28wmm")
+sprite_texture = SubResource("AtlasTexture_cveob")
+gui = NodePath("../../../SubScenes/MilestoneGUI")
+
+[node name="ForestButton" parent="SideMenueBar/ButtonsContainer" node_paths=PackedStringArray("gui") instance=ExtResource("4_f1gy4")]
+layout_mode = 2
+button_id = "forest"
+start_active = true
+is_unlocked_from_start = true
+label_text = "Forest"
+active_sprite_texture = SubResource("AtlasTexture_rt65d")
+sprite_texture = SubResource("AtlasTexture_scs5x")
+gui = NodePath("../../../SubScenes/ForestGUI")
+
+[node name="SawmillButton" parent="SideMenueBar/ButtonsContainer" node_paths=PackedStringArray("gui") instance=ExtResource("4_f1gy4")]
+layout_mode = 2
+button_id = "sawmill"
+label_text = "Sawmill"
+active_sprite_texture = SubResource("AtlasTexture_mhap8")
+sprite_texture = SubResource("AtlasTexture_d55no")
+gui = NodePath("../../../SubScenes/SawmillGUI")
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="Save" type="Node" parent="Managers"]
+
+[node name="AutoSaveTimer" type="Timer" parent="Managers/Save"]
+wait_time = 10.0
+autostart = true
+
+[node name="SaveManager" type="Node" parent="Managers/Save"]
+unique_name_in_owner = true
+script = ExtResource("6_wl7wd")
+
+[node name="MilestoneManager" type="Node" parent="Managers"]
+unique_name_in_owner = true
+script = ExtResource("10_s7vld")
+milestones = Array[Resource("res://Milestone/MilestoneResource.gd")]([ExtResource("9_guri7"), ExtResource("10_4ek4s"), ExtResource("11_yyqco"), ExtResource("12_l1gp7"), ExtResource("11_rtrof")])
+
+[node name="Music" type="Node" parent="Managers"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Managers/Music"]
+stream = ExtResource("7_27tkv")
+bus = &"Music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Managers/Music"]
+stream = ExtResource("8_1tdby")
+bus = &"Music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Managers/Music"]
+stream = ExtResource("9_k70u3")
+bus = &"Music"
+
+[node name="SubScenes" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MilestoneGUI" parent="SubScenes" instance=ExtResource("10_j5kea")]
+visible = false
+layout_mode = 1
+
+[node name="ForestGUI" parent="SubScenes" instance=ExtResource("13_kf5lb")]
+visible = false
+layout_mode = 1
+
+[node name="SawmillGUI" parent="SubScenes" instance=ExtResource("11_uvsd2")]
+visible = false
+layout_mode = 1
+
+[connection signal="timeout" from="Managers/Save/AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
+[connection signal="unlocked_milestone" from="Managers/MilestoneManager" to="." method="_on_milestone_manager_unlocked_milestone"]
+[connection signal="resources_update" from="SubScenes/ForestGUI" to="." method="_on_resources_update"]
+[connection signal="resources_update" from="SubScenes/SawmillGUI" to="." method="_on_resources_update"]

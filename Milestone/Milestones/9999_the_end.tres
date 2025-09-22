@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://ctnplxo6npd5h"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_ut3yk"]
+
+[resource]
+script = ExtResource("1_ut3yk")
+id = "the_end"
+name = "The End"
+description = "This is the end so far."
+effect_description = ""
+effect_id = ""
+effect_power = 0
+cost = {}

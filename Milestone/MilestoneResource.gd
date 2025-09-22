@@ -11,3 +11,9 @@ class_name MilestoneResource
 @export var cost: Dictionary
 
 
+func can_unlock(available_resources: Dictionary) -> bool:
+	for resource in cost.keys():
+		# If the resource doesn't exist or not enough is available -> fail
+		if !available_resources.has(resource) or available_resources[resource] < cost[resource]:
+			return false
+	return true

@@ -1,0 +1,394 @@
+[gd_scene load_steps=35 format=3 uid="uid://beat1ksdchkg4"]
+
+[ext_resource type="Texture2D" uid="uid://daxf52r61ekyk" path="res://assets/kenney_1-bit-pack/Tilesheet/colored-transparent.png" id="1_arbm7"]
+[ext_resource type="Script" path="res://game_container/GameContainer.gd" id="1_ng3kn"]
+[ext_resource type="FontFile" uid="uid://ba0xet4yn3b6y" path="res://assets/fonts/m5x7.ttf" id="2_gcla0"]
+[ext_resource type="PackedScene" uid="uid://c2nowgem0aeaj" path="res://GUI/CloseOpenButton/CloseOpenButton.tscn" id="4_f1gy4"]
+[ext_resource type="Script" path="res://game_container/ButtonsContainer.gd" id="4_qhsos"]
+[ext_resource type="Texture2D" uid="uid://bsgk80kd6jkke" path="res://assets/kenney_1-bit-pack/Tilesheet/colored.png" id="5_gj34k"]
+[ext_resource type="AudioStream" uid="uid://b7i7lc25tk7qo" path="res://assets/music/forest-lullaby-110624.mp3" id="7_27tkv"]
+[ext_resource type="AudioStream" uid="uid://bkqxkwjmtxs1u" path="res://assets/music/ambient-spring-forest-15846.mp3" id="8_1tdby"]
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="8_y71ly"]
+[ext_resource type="Resource" uid="uid://cyq84nuo5dfwr" path="res://Milestone/Milestones/100_unlock_building_sawmill.tres" id="9_f2oou"]
+[ext_resource type="AudioStream" uid="uid://b5rmvrhoifit1" path="res://assets/music/autumn-forest-171493.mp3" id="9_k70u3"]
+[ext_resource type="Resource" uid="uid://wir5orjbbbvh" path="res://Milestone/Milestones/200_unlock_material_beams.tres" id="9_r6nq6"]
+[ext_resource type="PackedScene" uid="uid://3nqldbhiakra" path="res://gui_sub_scenes/MilestoneGUI/milestone_gui.tscn" id="10_j5kea"]
+[ext_resource type="Script" path="res://Milestone/MilestoneManager.gd" id="10_s7vld"]
+[ext_resource type="PackedScene" uid="uid://dau0pv3jfc5ai" path="res://gui_sub_scenes/SawmillGUI/sawmill_gui.tscn" id="11_uvsd2"]
+[ext_resource type="PackedScene" uid="uid://shs5pn4v32xk" path="res://gui_sub_scenes/ForestGUI/forestGUI.tscn" id="13_kf5lb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hjsj"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(0, 17, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djr5s"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(119, 85, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i0yh"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(170, 357, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28wmm"]
+atlas = ExtResource("5_gj34k")
+region = Rect2(748, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cveob"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(748, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt65d"]
+atlas = ExtResource("5_gj34k")
+region = Rect2(51, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scs5x"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(51, 34, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhap8"]
+atlas = ExtResource("5_gj34k")
+region = Rect2(119, 340, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d55no"]
+atlas = ExtResource("1_arbm7")
+region = Rect2(119, 340, 16, 16)
+
+[sub_resource type="Resource" id="Resource_dp3t4"]
+script = ExtResource("8_y71ly")
+id = "forest_growth_1"
+name = "Forest Growth I"
+description = "The surrounding land begins to respond to your efforts. Young saplings spring up where once there was barren ground, nurtured by your growing settlement. With careful planning and patience, you’ve expanded your forest’s reach."
+effect_description = "Unlocks 2 additional tree plots."
+effect_id = "add_slots_tree"
+effect_power = 2
+cost = {
+"wood": 15
+}
+
+[sub_resource type="Resource" id="Resource_5qhiw"]
+script = ExtResource("8_y71ly")
+id = "forest_growth_2"
+name = "Forest Growth II"
+description = "The forest thickens as your influence spreads. Saplings mature into sturdy trees, offering more space for gathering and nurturing the land’s bounty. Your settlement feels more secure beneath the growing canopy."
+effect_description = "Unlocks 2 additional tree plots."
+effect_id = "add_slots_tree"
+effect_power = 2
+cost = {
+"wood": 50
+}
+
+[sub_resource type="Resource" id="Resource_tkkjr"]
+script = ExtResource("8_y71ly")
+id = "twin_blades_1"
+name = "Twin Blades I"
+description = "The first sawmill hums with activity, but your settlement’s needs grow ever greater. By constructing a second mill, production doubles, and the sound of saws becomes the heartbeat of your industry."
+effect_description = "Unlocks 1 additional sawmill."
+effect_id = "add_sawmill"
+effect_power = 1
+cost = {
+"plank": 5
+}
+
+[sub_resource type="Resource" id="Resource_pxe68"]
+script = ExtResource("8_y71ly")
+id = "forest_growth_3"
+name = "Forest Growth III"
+description = "Your settlement’s care transforms the wilderness. What was once sparse woodland is now a thriving grove, rich with life and opportunity. The forest is no longer fragile — it stands as a lasting source of strength."
+effect_description = "Unlocks 3 additional tree plots."
+effect_id = "add_slots_tree"
+effect_power = 3
+cost = {
+"plank": 10
+}
+
+[sub_resource type="Resource" id="Resource_5yu2r"]
+script = ExtResource("8_y71ly")
+id = "twin_blades_2"
+name = "Twin Blades II"
+description = "The steady rhythm of saws echoes across the settlement. With another mill added, production no longer stumbles under demand—planks flow smoothly, fueling construction and trade."
+effect_description = "Unlocks 1 additional sawmill."
+effect_id = "add_sawmill"
+effect_power = 1
+cost = {
+"beam": 10,
+"plank": 10
+}
+
+[sub_resource type="Resource" id="Resource_np3n2"]
+script = ExtResource("8_y71ly")
+id = "refined_cuts"
+name = "Refined Cuts"
+description = "Through practice and innovation, your workers learn to saw with greater precision. Less wood is wasted, and each log yields more usable planks, advancing both efficiency and craftsmanship."
+effect_description = "Unlocks improved plank recipe (Plank II)."
+effect_id = "unlock_recipe_sawmill_plank_2"
+effect_power = 1
+cost = {
+"beam": 20
+}
+
+[sub_resource type="Resource" id="Resource_mb05k"]
+script = ExtResource("8_y71ly")
+id = "forest_growth_4"
+name = "Forest Growth IV"
+description = "The woodland stretches farther than ever before. What began as scattered groves has become a vast expanse, dense and alive, offering your people room to grow alongside the flourishing trees."
+effect_description = "Unlocks 5 additional tree plots."
+effect_id = "add_slots_tree"
+effect_power = 5
+cost = {
+"beam": 10,
+"plank": 50
+}
+
+[sub_resource type="Resource" id="Resource_bv503"]
+script = ExtResource("8_y71ly")
+id = "twin_blades_3"
+name = "Twin Blades III"
+description = "Another mill is raised, its blades joining the chorus of steady work. With four sawmills now in operation, your settlement transforms into a true hub of timbercraft, where wood flows into planks without delay."
+effect_description = "Unlocks 1 additional sawmill."
+effect_id = "add_sawmill"
+effect_power = 1
+cost = {
+"beam": 20,
+"plank": 30
+}
+
+[sub_resource type="Resource" id="Resource_dquto"]
+script = ExtResource("8_y71ly")
+id = "reinforced_craft"
+name = "Reinforced Craft"
+description = "With sharper tools and sturdier techniques, your sawyers shape stronger, more reliable beams. Every cut is precise, and the wood’s strength is preserved, providing the backbone for even greater constructions."
+effect_description = "Unlocks improved beam recipe (Beams II)."
+effect_id = "unlock_recipe_sawmill_beam_2"
+effect_power = 1
+cost = {
+"beam": 80
+}
+
+[node name="game_container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ng3kn")
+
+[node name="Resources" type="CanvasLayer" parent="."]
+
+[node name="ResourceOverview" type="HBoxContainer" parent="Resources"]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = -144.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+
+[node name="wood" type="Control" parent="Resources/ResourceOverview"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Resources/ResourceOverview/wood"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Wood"
+texture = SubResource("AtlasTexture_6hjsj")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Resources/ResourceOverview/wood/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gcla0")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="plank" type="Control" parent="Resources/ResourceOverview"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Resources/ResourceOverview/plank"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Planks"
+texture = SubResource("AtlasTexture_djr5s")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Resources/ResourceOverview/plank/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gcla0")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="beam" type="Control" parent="Resources/ResourceOverview"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Resources/ResourceOverview/beam"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Planks"
+texture = SubResource("AtlasTexture_2i0yh")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Resources/ResourceOverview/beam/TextureRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gcla0")
+theme_override_font_sizes/font_size = 64
+text = "0"
+horizontal_alignment = 1
+
+[node name="SideMenueBar" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="SideMenueBar"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.203922, 0.0862745, 0.00392157, 0.803922)
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="SideMenueBar"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -308.0
+offset_right = -16.0
+offset_bottom = 308.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 30
+script = ExtResource("4_qhsos")
+
+[node name="MilestoneButton" parent="SideMenueBar/ButtonsContainer" node_paths=PackedStringArray("gui") instance=ExtResource("4_f1gy4")]
+layout_mode = 2
+button_id = "milestone"
+is_unlocked_from_start = true
+label_text = "Milestones"
+active_sprite_texture = SubResource("AtlasTexture_28wmm")
+sprite_texture = SubResource("AtlasTexture_cveob")
+gui = NodePath("../../../SubScenes/MilestoneGUI")
+
+[node name="ForestButton" parent="SideMenueBar/ButtonsContainer" node_paths=PackedStringArray("gui") instance=ExtResource("4_f1gy4")]
+layout_mode = 2
+button_id = "forest"
+start_active = true
+is_unlocked_from_start = true
+label_text = "Forest"
+active_sprite_texture = SubResource("AtlasTexture_rt65d")
+sprite_texture = SubResource("AtlasTexture_scs5x")
+gui = NodePath("../../../SubScenes/ForestGUI")
+
+[node name="SawmillButton" parent="SideMenueBar/ButtonsContainer" node_paths=PackedStringArray("gui") instance=ExtResource("4_f1gy4")]
+layout_mode = 2
+button_id = "sawmill"
+label_text = "Sawmill"
+active_sprite_texture = SubResource("AtlasTexture_mhap8")
+sprite_texture = SubResource("AtlasTexture_d55no")
+gui = NodePath("../../../SubScenes/SawmillGUI")
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="MilestoneManager" type="Node" parent="Managers"]
+unique_name_in_owner = true
+script = ExtResource("10_s7vld")
+milestones = Array[ExtResource("8_y71ly")]([SubResource("Resource_dp3t4"), SubResource("Resource_5qhiw"), ExtResource("9_f2oou"), SubResource("Resource_tkkjr"), SubResource("Resource_pxe68"), ExtResource("9_r6nq6"), SubResource("Resource_5yu2r"), SubResource("Resource_np3n2"), SubResource("Resource_mb05k"), SubResource("Resource_bv503"), SubResource("Resource_dquto")])
+
+[node name="Music" type="Node" parent="Managers"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Managers/Music"]
+stream = ExtResource("7_27tkv")
+bus = &"Music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Managers/Music"]
+stream = ExtResource("8_1tdby")
+bus = &"Music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Managers/Music"]
+stream = ExtResource("9_k70u3")
+bus = &"Music"
+
+[node name="Save" type="Node" parent="Managers"]
+
+[node name="AutoSaveTimer" type="Timer" parent="Managers/Save"]
+wait_time = 10.0
+autostart = true
+
+[node name="SubScenes" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MilestoneGUI" parent="SubScenes" instance=ExtResource("10_j5kea")]
+visible = false
+layout_mode = 1
+
+[node name="ForestGUI" parent="SubScenes" instance=ExtResource("13_kf5lb")]
+visible = false
+layout_mode = 1
+
+[node name="SawmillGUI" parent="SubScenes" instance=ExtResource("11_uvsd2")]
+visible = false
+layout_mode = 1
+
+[connection signal="unlock_sawmills" from="." to="SubScenes/SawmillGUI" method="_on_game_container_unlock_sawmills"]
+[connection signal="unlock_trees" from="." to="SubScenes/ForestGUI" method="_on_game_container_unlock_trees"]
+[connection signal="unlocked_milestone" from="Managers/MilestoneManager" to="." method="_on_milestone_manager_unlocked_milestone"]
+[connection signal="timeout" from="Managers/Save/AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
+[connection signal="resources_update" from="SubScenes/ForestGUI" to="." method="_on_resources_update"]
+[connection signal="resources_update" from="SubScenes/SawmillGUI" to="." method="_on_resources_update"]

@@ -11,15 +11,24 @@ config_version=5
 [application]
 
 config/name="Lumber Clicker"
-run/main_scene="res://Game/game.tscn"
+run/main_scene="res://game_container/GameContainer.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
+run/max_fps=120
 config/icon="res://assets/misc/favicon.svg"
+
+[autoload]
+
+SaveManager="*res://save_manager/SaveManager.gd"
+CraftingRecipesManager="*res://recipes/CraftingRecipesManager.gd"
 
 [file_customization]
 
 folder_colors={
 "res://Milestone/": "yellow",
-"res://assets/": "red"
+"res://assets/": "red",
+"res://gui_sub_scenes/": "blue",
+"res://recipes/": "orange",
+"res://save_manager/": "teal"
 }
 
 [importer_defaults]

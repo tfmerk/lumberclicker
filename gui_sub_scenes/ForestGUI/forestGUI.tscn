@@ -1,0 +1,183 @@
+[gd_scene load_steps=3 format=3 uid="uid://shs5pn4v32xk"]
+
+[ext_resource type="Script" path="res://gui_sub_scenes/ForestGUI/forestGUI.gd" id="1_v8gij"]
+[ext_resource type="PackedScene" uid="uid://y8sa0mrhaba8" path="res://GUI/TreeButton/TreeButton.tscn" id="2_3wqet"]
+
+[node name="ForestGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_v8gij")
+
+[node name="Trees" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -188.0
+offset_right = -263.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 10
+
+[node name="TreeButton" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton2" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton3" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton4" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton5" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton6" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton7" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton8" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton9" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton10" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton11" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton12" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton13" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton14" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton15" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton16" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton17" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton18" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton19" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton20" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton21" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton22" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton23" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton24" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton25" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton26" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton27" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton28" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton29" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton30" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton31" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton32" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton33" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton34" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton35" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton36" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton37" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton38" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton39" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton40" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton41" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton42" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton43" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton44" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton45" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton46" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton47" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton48" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton49" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2
+
+[node name="TreeButton50" parent="Trees" instance=ExtResource("2_3wqet")]
+layout_mode = 2

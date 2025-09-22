@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeResource" load_steps=2 format=3 uid="uid://bq37reyp0ysat"]
+
+[ext_resource type="Script" path="res://recipes/RecipeResource.gd" id="1_ytpw2"]
+
+[resource]
+script = ExtResource("1_ytpw2")
+id = "beam_1"
+name = "Beam I"
+tree_folder = "Beams"
+duration = 15
+resources_input = {
+"wood": 25
+}
+resources_output = {
+"beam": 1
+}
