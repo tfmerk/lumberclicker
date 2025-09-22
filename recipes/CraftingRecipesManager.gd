@@ -4,7 +4,9 @@ extends Node
 var all_recipes := {
 	# sawmill
 	"plank_1": preload("res://recipes/sawmill/plank_1.tres"),
+	"plank_2": preload("res://recipes/sawmill/plank_2.tres"),
 	"beam_1": preload("res://recipes/sawmill/beam_1.tres"),
+	"beam_2": preload("res://recipes/sawmill/beam_2.tres")
 }
 
 

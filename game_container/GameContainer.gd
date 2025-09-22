@@ -2,6 +2,7 @@ extends Control
 
 signal unlock_trees(amount: int)
 signal unlock_sawmills(amount: int)
+signal unlock_recipe()
 
 
 @onready var buttons_container = $SideMenueBar/ButtonsContainer
@@ -119,6 +120,7 @@ func apply_milestone_effect(milestone: MilestoneResource) -> void:
 					var recipe_type = recipe_info.substr(0, first_underscore_index)
 					var recipe_name = recipe_info.substr(first_underscore_index + 1)
 					SaveManager.save_data.unlocked_recipes[recipe_type].append(recipe_name)
+					unlock_recipe.emit()
 				else:
 					print("Could not parse milestone.effect_id: \"" + milestone.effect_id + "\"")
 			else:

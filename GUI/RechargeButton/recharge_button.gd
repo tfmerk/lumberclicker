@@ -145,19 +145,24 @@ func add_items_to_tree() -> void:
 	var recipes = CraftingRecipesManager.get_unlocked_sawmill_recipes()
 	var folder_items: Dictionary = {}
 	
+	# root folder as fix for "subfolder" bug
+	var root_folder_item = tree.create_item()
+	root_folder_item.set_text(0, "Recipes")
+	
 	for recipe: RecipeResource in recipes:
 		var folder: String = recipe.tree_folder
 		var folder_item: TreeItem
 		
-		if folder_items.has(folder):
-			folder_item = folder_items[folder]
-		else:
-			folder_item = tree.create_item()
+		# create new or use existing "folder" items
+		if not folder_items.has(folder):
+			folder_item = tree.create_item(root_folder_item)
 			folder_item.set_text(0, folder)
 			folder_items[folder] = folder_item
+		else:
+			folder_item = folder_items[folder]
 		
-		# add recipe item beneath folder item
-		var recipe_item: TreeItem = tree.create_item(folder_item)
+		# create recipe item beneath folder item
+		var recipe_item = tree.create_item(folder_item)
 		recipe_item.set_text(0, recipe.name)
-		recipe_item.set_metadata(0, recipe) # store resource reference
+		recipe_item.set_metadata(0, recipe)
 
