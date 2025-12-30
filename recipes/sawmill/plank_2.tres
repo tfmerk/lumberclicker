@@ -7,10 +7,10 @@ script = ExtResource("1_01105")
 id = "plank_2"
 name = "Plank II"
 tree_folder = "Planks"
-duration = 3
+duration = 10
 resources_input = {
-"wood": 6
+"wood": 30
 }
 resources_output = {
-"plank": 1
+"plank": 3
 }

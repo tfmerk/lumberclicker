@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://b7i7lc25tk7qo" path="res://assets/music/forest-lullaby-110624.mp3" id="7_27tkv"]
 [ext_resource type="AudioStream" uid="uid://bkqxkwjmtxs1u" path="res://assets/music/ambient-spring-forest-15846.mp3" id="8_1tdby"]
 [ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="8_y71ly"]
-[ext_resource type="Resource" uid="uid://cyq84nuo5dfwr" path="res://Milestone/Milestones/100_unlock_building_sawmill.tres" id="9_f2oou"]
+[ext_resource type="Resource" uid="uid://b5uf68i3vegf6" path="res://Milestone/Milestones/300_unlock_building_mine.tres" id="9_5pyu3"]
 [ext_resource type="AudioStream" uid="uid://b5rmvrhoifit1" path="res://assets/music/autumn-forest-171493.mp3" id="9_k70u3"]
 [ext_resource type="Resource" uid="uid://wir5orjbbbvh" path="res://Milestone/Milestones/200_unlock_material_beams.tres" id="9_r6nq6"]
 [ext_resource type="PackedScene" uid="uid://3nqldbhiakra" path="res://gui_sub_scenes/MilestoneGUI/milestone_gui.tscn" id="10_j5kea"]
@@ -344,7 +344,7 @@ gui = NodePath("../../../SubScenes/SawmillGUI")
 [node name="MilestoneManager" type="Node" parent="Managers"]
 unique_name_in_owner = true
 script = ExtResource("10_s7vld")
-milestones = Array[ExtResource("8_y71ly")]([SubResource("Resource_dp3t4"), SubResource("Resource_5qhiw"), ExtResource("9_f2oou"), SubResource("Resource_tkkjr"), SubResource("Resource_pxe68"), ExtResource("9_r6nq6"), SubResource("Resource_5yu2r"), SubResource("Resource_np3n2"), SubResource("Resource_mb05k"), SubResource("Resource_bv503"), SubResource("Resource_dquto")])
+milestones = Array[ExtResource("8_y71ly")]([SubResource("Resource_dp3t4"), SubResource("Resource_5qhiw"), ExtResource("9_5pyu3"), SubResource("Resource_tkkjr"), SubResource("Resource_pxe68"), ExtResource("9_r6nq6"), SubResource("Resource_5yu2r"), SubResource("Resource_np3n2"), SubResource("Resource_mb05k"), SubResource("Resource_bv503"), SubResource("Resource_dquto"), null])
 
 [node name="Music" type="Node" parent="Managers"]
 
@@ -386,6 +386,10 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+
+[connection signal="unlock_recipe" from="." to="SubScenes/SawmillGUI" method="_on_game_container_unlock_recipe"]
 [connection signal="unlock_sawmills" from="." to="SubScenes/SawmillGUI" method="_on_game_container_unlock_sawmills"]
 [connection signal="unlock_trees" from="." to="SubScenes/ForestGUI" method="_on_game_container_unlock_trees"]
 [connection signal="unlocked_milestone" from="Managers/MilestoneManager" to="." method="_on_milestone_manager_unlocked_milestone"]

@@ -7,9 +7,9 @@ script = ExtResource("1_ytpw2")
 id = "beam_1"
 name = "Beam I"
 tree_folder = "Beams"
-duration = 15
+duration = 5
 resources_input = {
-"wood": 25
+"wood": 15
 }
 resources_output = {
 "beam": 1

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MilestoneResource" load_steps=2 format=3 uid="uid://b5uf68i3vegf6"]
+
+[ext_resource type="Script" path="res://Milestone/MilestoneResource.gd" id="1_6awk8"]
+
+[resource]
+script = ExtResource("1_6awk8")
+id = "beneath_the_roots"
+name = "Beneath the Roots"
+description = "As your settlement grows, the people look beyond the forest floor. Tools are sharpened for stone and ore, and the first shafts are dug into the earth. Beneath the roots of the great trees lies a new wealth, waiting to be claimed."
+effect_description = "Unlocks the Mine building, allowing extraction of stone and ore."
+effect_id = "unlock_building_mine"
+effect_power = 1
+cost = {
+"wood": 200
+}

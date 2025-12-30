@@ -5,6 +5,8 @@ signal button_recharged
 signal button_started
 
 @export var recharge_time: float = 3.0
+@export var selected_texture: Texture2D
+@export var root_folder_name: String = "Recipes"
 
 @onready var sprite_2d = $Sprite2
 @onready var recharge_timer = $RechargeTimer
@@ -29,6 +31,10 @@ var time_passed: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#if sprite_2d != null and selected_texture != null:
+		#sprite_2d.texture = selected_texture
+		#print("here!")
+	
 	recharge_timer.wait_time = recharge_time
 	animation_player.play("RESET")
 	time_left_label.text = ""
@@ -147,7 +153,7 @@ func add_items_to_tree() -> void:
 	
 	# root folder as fix for "subfolder" bug
 	var root_folder_item = tree.create_item()
-	root_folder_item.set_text(0, "Recipes")
+	root_folder_item.set_text(0, root_folder_name)
 	
 	for recipe: RecipeResource in recipes:
 		var folder: String = recipe.tree_folder

@@ -21,10 +21,10 @@ class_name SaveData
 
 @export var resources: Dictionary = {
 	# -- Forest
-	"wood": 0,
+	"wood": 10000,
 	# -- Sawmill
-	"plank": 0,
-	"beam": 0,
+	"plank": 1000,
+	"beam": 1000,
 	"timber_frame": 0,
 	# -- Mine
 	"stone": 0,

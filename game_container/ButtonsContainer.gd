@@ -7,7 +7,7 @@ func _ready():
 	for button_node in button_nodes:
 		if not button_node.pressed_close_open_button.is_connected(_on_pressed_close_open_button):
 			button_node.pressed_close_open_button.connect(_on_pressed_close_open_button)
-			print("connected button")
+			print("connected buttons container button: " + button_node.label.text)
 	
 	reset_button_state(button_nodes)
 	
@@ -57,6 +57,7 @@ func reset_button_state(button_nodes: Array[Node]) -> void:
 		button_node.disabled = false
 		if button_node.gui != null:
 			button_node.gui.visible = false
+		print("... visible: " + str(button_node.gui.visible))
 
 
 
